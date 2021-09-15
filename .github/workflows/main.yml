@@ -33,11 +33,5 @@ jobs:
       - name: Run test
         run: echo "::set-output name=jest-test-run::$(npm run test)"
         id: run_tests
-      - name: Log Build output
-        run: echo steps.build_tests.jest_test_build
-      - name: Log Build output2
-        run: echo ${{steps.build_tests.jest_test_build}}
-      - name: Log Test output
-        run: echo steps.run_tests.jest_test_run
-      - name: Log Test output2
-        run: echo ${{steps.run_tests.jest_test_run}}
+      - name: Run test2
+        run: echo "$(npm run test)"
