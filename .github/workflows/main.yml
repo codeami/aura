@@ -27,4 +27,5 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run test
-        run: echo npm run test
+        run: echo "::set-output npm run test"
+        id: run_tests
