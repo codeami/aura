@@ -27,8 +27,17 @@ jobs:
 
       # Runs a single command using the runners shell
       # https://stackoverflow.com/questions/59191913/get-output-of-a-specific-step-in-github-actions
+      - name: Build test
+        run: echo "::set-output name=jest_test_build::$(npm install)"
+        id: build_tests
       - name: Run test
-        run: echo "::set-output name=jest-test::$(npm install;npm run test)"
+        run: echo "::set-output name=jest-test-run::$(npm run test)"
         id: run_tests
-      - name: Log output
-        run: echo ${{join(steps.run_tests.outputs.*, '\n')}}
+      - name: Log Build output
+        run: echo steps.build_tests.jest_test_build
+      - name: Log Build output2
+        run: echo ${{steps.build_tests.jest_test_build}}
+      - name: Log Test output
+        run: echo steps.run_tests.jest_test_run
+      - name: Log Test output2
+        run: echo ${{steps.run_tests.jest_test_run}}
