@@ -26,6 +26,9 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
+      # https://stackoverflow.com/questions/59191913/get-output-of-a-specific-step-in-github-actions
       - name: Run test
-        run: echo "::set-output npm run test"
+        run: echo "::set-output name=jest-test::$(npm run test)\n"
         id: run_tests
+      - name: Log output
+        run: echo ${{join(steps.run_tests.outputs.*, '\n')}}
