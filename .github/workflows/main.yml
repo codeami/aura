@@ -28,8 +28,6 @@ jobs:
       # Runs a single command using the runners shell
       # https://stackoverflow.com/questions/59191913/get-output-of-a-specific-step-in-github-actions
       - name: Build test
-        run: echo "npm install"
+        run: echo "$(npm install)"
       - name: Run test
-        run: echo "npm run test"
-      - name: Run test2
         run: echo "$(npm run test)"
