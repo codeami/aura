@@ -6,7 +6,7 @@
     "npm": ">=6.0.0"
   },
   "dependencies": {
-    "@sitespeed.io/chromedriver": "^87.0.4280-20",
+    "@sitespeed.io/chromedriver": "^93.0.4577-15",
     "jest": "^26.6.3",
     "prettier": "^2.2.0",
     "selenium-webdriver": "^4.0.0-alpha.7"
