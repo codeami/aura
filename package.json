@@ -5,11 +5,21 @@
     "node": ">=12.0.0",
     "npm": ">=6.0.0"
   },
+  "dependenciesComments": {
+    "@sitespeed.io/chromedriver": "Downloads Chromedriver and provides a node api for accessing the path to the binary",
+    "puppetter": "high-level API to control headless Chrome or Chromium over the DevTools Protocol. Supports full (non-headless) Chrome or Chromium.",
+    "jest-puppetter": " A Jest preset, that makes things easier for you to configure the puppeteer headless browser."
+  },
   "dependencies": {
     "@sitespeed.io/chromedriver": "^93.0.4577-15",
-    "jest": "^26.6.3",
+    "@types/jest": "^27.0.1",
+    "@types/jest-environment-puppeteer": "^4.4.1",
+    "@types/puppeteer": "^5.4.4",
+    "faker": "^5.5.3",
     "prettier": "^2.2.0",
-    "selenium-webdriver": "^4.0.0-alpha.7"
+    "puppeteer": "^10.2.0",
+    "selenium-webdriver": "^4.0.0-alpha.7",
+    "typescript": "^4.4.3"
   },
   "jest": {
     "rootDir": "./src/tests",
@@ -19,10 +29,26 @@
     "testTimeout": 90000,
     "testEnvironment": "node",
     "maxConcurrency": 3,
-    "verbose": true
+    "verbose": true,
+    "bail": 5,
+    "preset": "jest-puppeteer"
+  },
+  "jest-puppeteer": {
+    "launch": {
+      "headless": "false"
+    },
+    "browserContext": "default"
   },
   "scripts": {
     "format:fix": "prettier --write src/**/*.js",
-    "test": "jest"
+    "test": "jest --runInBand",
+    "clearCache": "jest --clearCache"
+  },
+  "devDependencies": {
+    "jest": "27.0.0",
+    "jest-puppeteer": "^5.0.4",
+    "ts-jest": "27.0.0",
+    "ts-loader": "^9.2.5",
+    "ts-node": "^10.2.1"
   }
 }
