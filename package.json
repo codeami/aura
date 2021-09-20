@@ -41,7 +41,7 @@
   },
   "scripts": {
     "format:fix": "prettier --write src/**/*.js",
-    "test": "jest --runInBand",
+    "test": "npm i && jest --runInBand",
     "clearCache": "jest --clearCache"
   },
   "devDependencies": {
