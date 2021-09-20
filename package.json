@@ -42,6 +42,9 @@
   "scripts": {
     "format:fix": "prettier --write src/**/*.js",
     "test": "npm i && jest --runInBand",
+    "test:headless": "HEADLESS=true npm test",
+    "test:config": "npm i && jest --runInBand --globals='{\"puppeteerConfig\": {\"launch\": {\"args\": [\"\"]}}}'",
+    "test:headless_config": "npm i && jest --runInBand --globals='{\"puppeteerConfig\": {\"launch\": {\"args\": [\"--headless\"]}}}'",
     "clearCache": "jest --clearCache"
   },
   "devDependencies": {
